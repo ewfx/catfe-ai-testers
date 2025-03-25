@@ -1,0 +1,48 @@
+﻿@using Web.Models
+@model  IEnumerable<Loan>
+
+@{
+    ViewData["Title"] = "Loan Assessment";
+}
+
+<h1>Loans</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Loan ID</th>
+            <th>Customer ID</th>
+            <th>Loan Amount</th>
+            <th>Credit Score</th>
+            <th>Employment Status</th>
+            <th>Debt to Income Ratio</th>
+            <th>Approval Status</th>
+            <th>Loan Result</th>
+            <th>Interest Rate</th>
+            <th>Expected Result</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var loan in Model)
+        {
+            <tr>
+                <td>@loan.LoanId</td>
+                <td>@loan.CustomerId</td>
+                <td>@loan.LoanAmount</td>
+                <td>@loan.CreditScore</td>
+                <td>@loan.EmploymentStatus</td>
+                <td>@loan.DebtToIncomeRatio</td>
+                <td>@loan.ApprovalStatus</td>
+                <td>@loan.LoanResult</td>
+                <td>@loan.InterestRate</td>
+                <td>@loan.ExpectedResult</td>
+                <td>
+                    <a asp-page="/LoanAssessment/Edit" asp-route-id="@loan.LoanId" class="btn btn-primary">Edit</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-page="/LoanAssessment/Create" class="btn btn-success">Add New Loan</a>
