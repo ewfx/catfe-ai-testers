@@ -172,9 +172,3 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
-/.vs
-/code/src/LoanCreditRiskAssessment/.vs/LoanCreditRiskAssessment/CopilotIndices/17.13.441.19478
-/code/src/LoanCreditRiskAssessment/.vs/LoanCreditRiskAssessment/FileContentIndex
-/code/src/LoanCreditRiskAssessment/.vs/LoanCreditRiskAssessment/v17
-/code/src/LoanCreditRiskAssessment/LoanCreditRiskAssessment/bin/Debug/net8.0
-/code/src/LoanCreditRiskAssessment/LoanCreditRiskAssessment/obj
