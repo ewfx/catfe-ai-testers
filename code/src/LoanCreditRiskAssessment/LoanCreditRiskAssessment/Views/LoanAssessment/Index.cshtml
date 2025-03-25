@@ -39,7 +39,7 @@
 				<td>@loan.ExpectedResult</td>
 				<td>
 					@* <a asp-page="/LoanAssessment/Edit" asp-route-id="@loan.LoanId" class="btn btn-primary">Edit</a> *@
-			@Html.ActionLink("Edit Loan", "Edit", new { /* id = Model.PrimaryKey */ })
+			@Html.ActionLink("Edit Loan", "Edit", new { id = @loan.LoanId })
 
 				</td>
 			</tr>

@@ -7,6 +7,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Update="wwwroot\data\creditinfo.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Update="wwwroot\data\loans.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
