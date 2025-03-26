@@ -7,6 +7,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Update="wwwroot\data\ApprovalResult.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Update="wwwroot\data\creditinfo.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -14,5 +17,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
+
+  <ProjectExtensions><VisualStudio><UserProperties wwwroot_4data_4loans_1json__JsonSchema="https://appsemble.app/api.json" /></VisualStudio></ProjectExtensions>
 
 </Project>

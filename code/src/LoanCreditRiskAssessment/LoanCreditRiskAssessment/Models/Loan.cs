@@ -2,8 +2,8 @@
 {
     public class Loan
     {
-        public int LoanId { get; set; }
-        public int CustomerId { get; set; }
+        public required string LoanId { get; set; }
+        public required string CustomerId { get; set; }
         public double LoanAmount { get; set; }
         public int? CreditScore { get; set; }
         public string? EmploymentStatus { get; set; }
