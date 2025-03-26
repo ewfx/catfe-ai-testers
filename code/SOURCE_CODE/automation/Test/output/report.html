@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Test Report</title>
+    <link rel="icon" href="http://reportbuilder.rajatthareja.com/rb.ico">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css" media="screen,projection"/>
+    <link href="https://cdn.rawgit.com/rajatthareja/ReportBuilderJava/v1.0.3/css/report.builder.min.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+</head>
+<body>
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+
+<header class="brown lighten-5">
+    <div class="row brown lighten-1">
+        <div class="col m6 hide-on-small-only">
+            <h5 class="truncate white-text tooltipped" data-tooltip="Test Report">Test Report</h5>
+        </div>
+        <div class="col m6 s12 brown lighten-1">
+            <ul class="tabs brown lighten-1 row" style="overflow-x: hidden">
+                <li class="tab col s3"><a class=" brown lighten-3 active blue-text waves-effect waves-light tooltipped" data-tooltip="Results Overview" href="#overview"><i class="material-icons">assessment</i> Overview</a></li>
+                <li class="tab col s3"><a class=" brown lighten-3 white-text waves-effect waves-light tooltipped" data-tooltip="Scenarios by Features" href="#features"><i class="material-icons">view_headline</i> Features</a></li>
+                <li class="tab col s3"><a class=" brown lighten-3 white-text waves-effect waves-light tooltipped" data-tooltip="Scenarios Summary Table" href="#summary"><i class="material-icons">view_comfy</i> Summary</a></li>
+                    <li class="tab col s3"><a class=" brown lighten-3 white-text waves-effect waves-light tooltipped" data-tooltip="Failed Scenarios" href="#errors"><i class="material-icons">bug_report</i> Errors</a></li>
+            </ul>
+        </div>
+    </div>
+</header>
+<main class="brown lighten-5">
+    <div class="row">
+
+<div id="overview" class="col s12 brown lighten-5">
+    <div class="row">
+        <div class="col m4 s12">
+            <canvas id="featuresDoughnut" width="400" height="400"></canvas>
+            <table id="metaDataFeatures" class="bordered">
+                <tbody></tbody>
+            </table>
+        </div>
+        <div class="col m4 s12">
+            <canvas id="scenariosDoughnut" width="400" height="400"></canvas>
+            <table id="metaDataScenarios" class="bordered">
+                <tbody></tbody>
+            </table>
+        </div>
+        <div class="col m4 s12">
+            <table id="metaData" class="bordered">
+                <tbody>
+                <tr><th>Duration</th><td>28S</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<div id="features" class="col s12 brown lighten-5">
+    <ul class="featureList collapsible popout" data-collapsible="expandable">
+        <li class="feature broken">
+            <div class="collapsible-header brown lighten-1 white-text waves-effect waves-light">
+                <i class="material-icons white-text">featured_play_list</i>
+                <b>Feature</b>&nbsp;checkout functionality (28S)
+            </div>
+            <div class="collapsible-body brown lighten-4">
+                <ul class="collection scenarioList">
+                        <li class="collection-item scenario failed">
+                            <a class="waves-effect waves-light modal-trigger white-text" href="#f0s0">
+                                <b>Scenario</b> As a user I am able to checkout as guest (28S)
+                            </a>
+                        </li>
+                </ul>
+            </div>
+        </li>
+    </ul>
+</div>
+<div id="summary" class="col s12 brown lighten-5">
+    <table id="summaryTable" class="bordered brown lighten-1 white-text">
+        <thead>
+        <tr>
+            <th>Feature</th>
+            <th>Scenario</th>
+            <th>Status</th>
+            <th class="hide-on-small-only">Error</th>
+        </tr>
+        </thead>
+        <tbody>
+                    <tr class="failed">
+                        <td class="hoverable">checkout functionality</td>
+                        <td class="hoverable"><a class="modal-trigger white-text" href="#f0s0">As a user I am able to checkout as guest</a></td>
+                        <td class="hoverable uppercase">failed</td>
+                        <td class="hoverable hide-on-small-only">org.openqa.selenium.UnhandledAlertException: unexpected alert open: {Alert text : Please select some product options before adding this product to your cart.}</td>
+                    </tr>
+        </tbody>
+    </table>
+</div>
+<div id="errors" class="col s12 brown lighten-5">
+    <ul class="errorList collapsible popout" data-collapsible="expandable">
+        <li class="error">
+            <div class="collapsible-header red lighten-2 white-text waves-effect waves-light">
+                <i class="material-icons">bug_report</i>org.openqa.selenium.UnhandledAlertException: unexpected alert open: {Alert text : Please select some product options before adding this product to your cart.}
+            </div>
+            <div class="collapsible-body brown lighten-4">
+                <ul class="collection failedScenarioList">
+                                    <li class="collection-item failedScenario brown lighten-5">
+                                        <i class="material-icons red-text">highlight_off</i>&nbsp;<a
+                                            class="modal-trigger red-text"
+                                            href="#f0s0">As a user I am able to checkout as guest</a>
+                                    </li>
+                </ul>
+            </div>
+        </li>
+    </ul>
+</div>
+    </div>
+</main>
+
+<footer class="page-footer brown lighten-4">
+    <div class="footer-copyright brown lighten-1">
+        <div class="container">
+            Happy Reporting!
+            <a class="white-text text-lighten-4 right" href="http://reportbuilderjava.rajatthareja.com">Generated by Report Builder</a>
+        </div>
+    </div>
+</footer>
+<div id="f0s0" class="modal modal-fixed-footer">
+    <div class="modal-content">
+
+        <h5>As a user I am able to checkout as guest</h5>
+        src/main/resources/E2E.feature:3
+
+        <p><ul class="collection stepList">
+<li class="collection-item hook"></li>
+
+<li class="collection-item step passed">
+    <b>Given </b> I visit the website as a guest user (22S)
+</li>
+
+<li class="collection-item step passed">
+    <b>When </b> I search for the product "dress" from searchbox (0S)
+</li>
+
+<li class="collection-item step passed">
+    <b>Then </b> I navigate to product details page (0S)
+</li>
+
+<li class="collection-item step passed">
+    <b>When </b> I select a random product (3S)
+</li>
+
+<li class="collection-item step passed">
+    <b>And </b> I navigate to PDP (0S)
+</li>
+
+<li class="collection-item step passed">
+    <b>And </b> I click on "ADD TO CART" button (0S)
+</li>
+
+<li class="collection-item step failed">
+    <b>When </b> I click on bag icon from header (0S)
+        <pre class="error">org.openqa.selenium.UnhandledAlertException: unexpected alert open: {Alert text : Please select some product options before adding this product to your cart.}
+  (Session info: chrome=66.0.3359.181)
+  (Driver info: chromedriver=2.35.528161 (5b82f2d2aae0ca24b877009200ced9065a772e73),platform=Windows NT 6.1.7601 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 0 milliseconds: null
+Build info: version: '3.12.0', revision: '7c6e0b3', time: '2018-05-08T14:04:26.12Z'
+System info: host: 'OSIT-L-0322', ip: '192.168.1.5', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.8.0_74'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, acceptSslCerts: false, applicationCacheEnabled: false, browserConnectionEnabled: false, browserName: chrome, chrome: {chromedriverVersion: 2.35.528161 (5b82f2d2aae0ca..., userDataDir: C:\Users\SKUMAR~1.OSI\AppDa...}, cssSelectorsEnabled: true, databaseEnabled: false, handlesAlerts: true, hasTouchScreen: false, javascriptEnabled: true, locationContextEnabled: true, mobileEmulationEnabled: false, nativeEvents: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, rotatable: false, setWindowRect: true, takesHeapSnapshot: true, takesScreenshot: true, unexpectedAlertBehaviour: , unhandledPromptBehavior: , version: 66.0.3359.181, webStorageEnabled: true}
+Session ID: d1813b094c83f027ad012cb33dc0addd
+*** Element info: {Using=css selector, value=.navbar-wrapper}
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:214)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:172)
+	at org.openqa.selenium.remote.http.JsonHttpResponseCodec.reconstructValue(JsonHttpResponseCodec.java:40)
+	at org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:80)
+	at org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:44)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:543)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:317)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByCssSelector(RemoteWebDriver.java:411)
+	at org.openqa.selenium.By$ByCssSelector.findElement(By.java:431)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:309)
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
+	at org.openqa.selenium.support.pagefactory.AjaxElementLocator.access$001(AjaxElementLocator.java:40)
+	at org.openqa.selenium.support.pagefactory.AjaxElementLocator$SlowLoadingElement.isLoaded(AjaxElementLocator.java:156)
+	at org.openqa.selenium.support.ui.SlowLoadableComponent.get(SlowLoadableComponent.java:48)
+	at org.openqa.selenium.support.pagefactory.AjaxElementLocator.findElement(AjaxElementLocator.java:86)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+	at ru.yandex.qatools.htmlelements.loader.decorator.proxyhandlers.WebElementNamedProxyHandler.invoke(WebElementNamedProxyHandler.java:44)
+	at com.sun.proxy.$Proxy18.findElement(Unknown Source)
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
+	at org.openqa.selenium.support.pagefactory.AjaxElementLocator.access$001(AjaxElementLocator.java:40)
+	at org.openqa.selenium.support.pagefactory.AjaxElementLocator$SlowLoadingElement.isLoaded(AjaxElementLocator.java:156)
+	at org.openqa.selenium.support.ui.SlowLoadableComponent.get(SlowLoadableComponent.java:48)
+	at org.openqa.selenium.support.pagefactory.AjaxElementLocator.findElement(AjaxElementLocator.java:86)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+	at ru.yandex.qatools.htmlelements.loader.decorator.proxyhandlers.WebElementNamedProxyHandler.invoke(WebElementNamedProxyHandler.java:44)
+	at com.sun.proxy.$Proxy18.click(Unknown Source)
+	at ru.yandex.qatools.htmlelements.element.TypifiedElement.click(TypifiedElement.java:112)
+	at stepDefs.E2ESteps.iClickOnBagIconFromHeader(E2ESteps.java:63)
+	at ✽.When I click on bag icon from header(src/main/resources/E2E.feature:10)
+</pre>
+</li>
+
+<li class="collection-item step skipped">
+    <b>Then </b> I navigate to shopping bag page (0S)
+</li>
+
+<li class="collection-item step skipped">
+    <b>When </b> I proceed to checkout as guest (0S)
+</li>
+
+<li class="collection-item step skipped">
+    <b>Then </b> I navigate to checkout page (0S)
+</li>
+
+<li class="collection-item hook"></li>        </ul></p>
+    </div>
+    <div class="modal-footer">
+        <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat"><i class="material-icons">close</i></a>
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+            $('#f0s0').modal();
+        $('li:empty').remove();
+    });
+</script>
+<script src="https://cdn.rawgit.com/rajatthareja/ReportBuilderJava/v1.0.3/js/report.builder.min.js"></script>
+
+</body>
+</html>
